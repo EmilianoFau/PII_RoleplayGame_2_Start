@@ -46,5 +46,24 @@ namespace RoleplayGame
 
             Assert.AreEqual(gandalf.Health, 93);
         }
+        
+        [Test]
+        public void TestVida()
+        {
+            Archer gandalf = new Archer("Gandalf");
+            gandalf.Bow = new Bow();
+            gandalf.Helmet = new Helmet();
+
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.Axe = new Axe();
+            gimli.Helmet = new Helmet();
+            gimli.Shield = new Shield();
+
+            gandalf.ReceiveAttack(gimli.AttackValue);
+            gandalf.Cure();
+            gandalf.Cure();
+
+            Assert.AreEqual(gandalf.Health, 100);
+        }
     }
 }
